@@ -100,10 +100,12 @@ Installing the MapR Volume Driver allows you to create persistent volumes that m
   * kdf-provisioner.yaml
 * Change host IP (labeled: *changeme!*) in kdf-plugin-centos.yaml to your Master host IP (can get with *hostname --ip-address*)
 * Create the following resources as shown:
-  * *kubectl create -f kdf-namespace.yaml*
-  * *kubectl create -f kdf-rbac.yaml*
-  * *kubectl create -f kdf-plugin-centos.yaml*
-  * *kubectl create -f kdf-provisioner.yaml*
+  ```
+  kubectl create -f kdf-namespace.yaml
+  kubectl create -f kdf-rbac.yaml
+  kubectl create -f kdf-plugin-centos.yaml
+  kubectl create -f kdf-provisioner.yaml
+  ```
 
 ### Configure namespace, secret, and data access
 These are the initial steps needed to configure data cluster access for KubeFlow
@@ -112,12 +114,13 @@ These are the initial steps needed to configure data cluster access for KubeFlow
   * Get long lived service ticket from a MapR cluster. Can follow steps [here](https://mapr.com/docs/61/SecurityGuide/GeneratingServiceTicket.html)
   * Base64 encode this ticket. You can use a webtool like [this](https://www.base64encode.org/)
   * Insert encoded ticket string into [kf-secret.yaml](kf-secret.yaml) 
-  * Create secret: *kubectl create -f kf-secret.yaml*
+  * Create secret: 
+  ```kubectl create -f kf-secret.yaml```
 * Create Persistent Volume (PV) to provision storage in the cluster
   * Edit [kf-pv.yaml](kf-pv.yaml) and enter your cluster info where indicated under "options"
-  * *kubectl create -f kf-pv.yaml*
+  ```kubectl create -f kf-pv.yaml```
 * Create Persistent Volume Claim (PVC) to bind to this claim (using [kf-pvc.yaml](kf-pvc.yaml))
-  * *kubectl create -f kf-pvc.yaml* 
+  ```kubectl create -f kf-pvc.yaml```
 
 
 If you want to test that this worked, you can use the [kf-testpod.yaml](kf-testpod.yaml) to generate a Centos pod with this mount.
