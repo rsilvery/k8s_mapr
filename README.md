@@ -22,3 +22,13 @@ I did this on a single AWS t2.2xlarge instance with the following initial config
     sudo swapoff -a
     sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
     ```
+* Enable Bridge Networking:
+  * Create file */etc/sysctl.d/k8s.conf* with the following content
+    ```
+    net.bridge.bridge-nf-call-ip6tables = 1
+	net.bridge.bridge-nf-call-iptables = 1
+    ```
+  * Apply change:
+    ```
+    sudo sysctl --system
+    ```
