@@ -109,7 +109,7 @@ Installing the MapR Volume Driver allows you to create persistent volumes that m
 
 ### Configure namespace, secret, and data access
 These are the initial steps needed to configure data cluster access for KubeFlow
-* Create a Namespace for Kubeflow: 
+* Create a Namespace for Kubeflow (change 'kubeflow' in all files to whatever suits you): 
   ```
   kubectl create ns kubeflow
   ```
