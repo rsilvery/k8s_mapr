@@ -109,7 +109,10 @@ Installing the MapR Volume Driver allows you to create persistent volumes that m
 
 ### Configure namespace, secret, and data access
 These are the initial steps needed to configure data cluster access for KubeFlow
-* Create a Namespace for Kubeflow: *kubectl create ns kubeflow*
+* Create a Namespace for Kubeflow: 
+  ```
+  kubectl create ns kubeflow
+  ```
 * Create Secret for cluster access (see [kf-secret.yaml](kf-secret.yaml)):
   * Get long lived service ticket from a MapR cluster. Can follow steps [here](https://mapr.com/docs/61/SecurityGuide/GeneratingServiceTicket.html)
   * Base64 encode this ticket. You can use a webtool like [this](https://www.base64encode.org/)
