@@ -32,3 +32,11 @@ I did this on a single AWS t2.2xlarge instance with the following initial config
     ```
     sudo sysctl --system
     ```
+
+### Install Docker
+```
+sudo yum install -y docker
+sudo systemctl start docker
+sudo systemctl enable docker
+
+```
